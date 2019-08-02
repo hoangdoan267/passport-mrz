@@ -1,0 +1,41 @@
+Arguments: 
+  /Users/hoangdoan/.nvm/versions/node/v10.13.0/bin/node /Users/hoangdoan/.yarn/bin/yarn.js add reacrt react-dom next
+
+PATH: 
+  /Users/hoangdoan/.nvm/versions/node/v10.13.0/bin:/Users/hoangdoan/.yarn/bin:/Users/hoangdoan/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/hoangdoan/Library/Android/sdk/tools:/Users/hoangdoan/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  10.13.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/reacrt: Not found
+      at Request.params.callback [as _callback] (/Users/hoangdoan/.yarn/lib/cli.js:65656:18)
+      at Request.self.callback (/Users/hoangdoan/.yarn/lib/cli.js:134675:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/Users/hoangdoan/.yarn/lib/cli.js:135658:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/Users/hoangdoan/.yarn/lib/cli.js:135578:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1094:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "PassportNext",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

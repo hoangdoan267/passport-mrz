@@ -1,0 +1,20 @@
+{
+    "name": "PassportNext",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@zeit/next-css": "^1.0.1",
+        "antd": "^3.20.7",
+        "mrz": "^3.1.0",
+        "next": "^9.0.3",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "tesseract.js": "^1.0.19"
+    },
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    }
+}

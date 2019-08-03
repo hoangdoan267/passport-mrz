@@ -16,6 +16,9 @@ const reverseString = str => {
 };
 
 const processString = str => {
+    if (str === '') {
+        return '';
+    }
     const splited = str.split('');
     return `${splited[4]}${splited[5]}/${splited[2]}${splited[3]}/${splited[0]}${splited[1]}`;
 };
@@ -159,6 +162,19 @@ class Index extends React.Component {
     }
 
     onChange = event => {
+        this.setState({
+            data: {
+                documentCode: '',
+                documentNumber: '',
+                nationality: '',
+                expirationDate: '',
+                birthDate: '',
+                firstName: '',
+                lastName: '',
+                personalNumber: '',
+                sex: ''
+            }
+        });
         var input = event.target;
         var file = input.files[0];
         console.log(file);
@@ -184,16 +200,27 @@ class Index extends React.Component {
             .then(result => {
                 // Select lines of length 44 starting with P>
                 console.log(result.lines.map(line => line.text.trim().length));
-                let selected = result.lines.filter(line => line.text.trim().length >= 44);
+                let selected = result.lines.filter(line => line.text.trim().replace(' ', '').length >= 44);
                 if (selected.length > 2) {
                     selected = selected.slice(selected.length - 2, selected.length);
                 }
                 let mrz = selected
                     .map(line => {
-                        return line.text
-                            .replace(' ', '')
-                            .substring(0, 45)
+                        let resultText = line.text
+                            .split(' ')
+                            .join('')
                             .trim();
+                        console.log(resultText);
+                        if (resultText.length > 44) {
+                            return resultText.substring(0, 44);
+                        }
+
+                        if (resultText.length < 44) {
+                            resultText = resultText + '<';
+                            return resultText;
+                        }
+
+                        return resultText;
                     })
                     .join('\n')
                     .replace(/ /, '');

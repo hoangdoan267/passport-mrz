@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { Layout, DatePicker, Input, Row, Col, Progress } from 'antd';
+import { Layout, DatePicker, Input, Row, Col, Progress, message } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 const parse = require('mrz').parse;
 import { Form, Icon, Button, Checkbox } from 'antd';
@@ -8,19 +8,16 @@ import { Form, Icon, Button, Checkbox } from 'antd';
 import 'antd/dist/antd.css';
 import './style.css';
 
-const reverseString = str => {
-    return str
-        .split('')
-        .reverse()
-        .join('');
-};
-
 const processString = str => {
-    if (str === '') {
-        return '';
+    try {
+        if (str === '') {
+            return '';
+        }
+        const splited = str.split('');
+        return `${splited[4]}${splited[5]}/${splited[2]}${splited[3]}/${splited[0]}${splited[1]}`;
+    } catch (error) {
+        message.error('Đã có lỗi xảy ra');
     }
-    const splited = str.split('');
-    return `${splited[4]}${splited[5]}/${splited[2]}${splited[3]}/${splited[0]}${splited[1]}`;
 };
 class NormalLoginForm extends React.Component {
     handleSubmit = e => {
@@ -56,12 +53,12 @@ class NormalLoginForm extends React.Component {
             setFieldsValue({
                 nationality: formData.nationality,
                 passportType: formData.documentCode,
-                passportNo: formData.documentNumber,
+                passportNo: 'XXXXXX',
                 dateOfExpiry: processString(formData.expirationDate),
                 dateOfBirth: processString(formData.birthDate),
                 fullname: formData.firstName,
                 lastname: formData.lastName,
-                idNumber: formData.personalNumber,
+                idNumber: 'XXXXXX',
                 sex: formData.sex
             });
         }
@@ -273,7 +270,7 @@ class Index extends React.Component {
                 }
             });
         } catch (error) {
-            console.log(error);
+            message.error('Đã có lỗi xảy ra');
         }
     };
 

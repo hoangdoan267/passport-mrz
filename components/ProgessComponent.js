@@ -160,7 +160,6 @@ export default class ProgressComponent extends React.Component {
                         <WrappedNormalLoginForm formData={this.state.data} />
                     </div>
                 </Col>
-                {/* <Col span={12}>col-12</Col> */}
             </Row>
         );
     }

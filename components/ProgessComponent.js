@@ -130,6 +130,7 @@ export default class ProgressComponent extends React.Component {
             const mrzParse = parse(mrz);
             const { fields } = mrzParse;
             const { documentCode, documentNumber, nationality, expirationDate, birthDate, firstName, lastName, personalNumber, sex } = fields;
+            console.log(expirationDate);
             this.setState({
                 data: {
                     documentCode,
@@ -144,6 +145,7 @@ export default class ProgressComponent extends React.Component {
                 }
             });
         } catch (error) {
+            console.log(error);
             message.error('Đã có lỗi xảy ra');
         }
     };

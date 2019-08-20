@@ -20,32 +20,39 @@ class Index extends React.Component {
     }
 
     onChange = event => {
-        const foo = [];
-        console.log(event);
+        try {
+            const foo = [];
 
-        var i = 0;
+            var i = 0;
 
-        while (i < fl) {
-            // localize file var in the loop
-            var file = files[i];
-            alert(file.name);
-            i++;
-        }
+            while (i < fl) {
+                var file = files[i];
+                alert(file.name);
+                i++;
+            }
 
-        var input = event.target;
-        var files = input.files;
-        var fl = files.length;
-        console.log(files);
+            var input = event.target;
+            var files = input.files;
+            var fl = files.length;
+            console.log(files);
 
-        while (i < fl) {
-            // localize file var in the loop
-            var file = files[i];
-            foo.push(file);
-            i++;
-        }
-        this.setState({
-            files: foo
-        });
+            while (i < fl) {
+                // localize file var in the loop
+                var file = files[i];
+                foo.push(file);
+                i++;
+            }
+            this.setState(
+                {
+                    files: []
+                },
+                () => {
+                    this.setState({
+                        files: foo
+                    });
+                }
+            );
+        } catch (error) {}
     };
 
     render() {

@@ -34,7 +34,6 @@ class Index extends React.Component {
             var input = event.target;
             var files = input.files;
             var fl = files.length;
-            console.log(files);
 
             while (i < fl) {
                 // localize file var in the loop

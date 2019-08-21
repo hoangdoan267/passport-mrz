@@ -86,7 +86,7 @@ class NormalLoginForm extends React.Component {
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <Row gutter={8}>
                     <Col span={12}>
-                        <Form.Item label="Họ">
+                        <Form.Item label="Họ và tên">
                             {getFieldDecorator('fullname', {
                                 rules: [{ required: true, message: 'Please input' }]
                             })(<Input placeholder="Họ và tên" />)}
